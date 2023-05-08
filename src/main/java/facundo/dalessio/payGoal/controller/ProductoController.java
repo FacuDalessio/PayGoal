@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +28,7 @@ public class ProductoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable("id")@Valid @NonNull Long id, @Valid @RequestBody ProductoRequest request){
-        ProductoResponse response = null;
+        ProductoResponse response;
         try {
             response = productoService.update(id, request);
         }catch (Exception e){
@@ -41,11 +40,11 @@ public class ProductoController {
     public ResponseEntity<List<ProductoResponse>> getProductos(){
         return ResponseEntity.ok(productoService.getProductos());
     }
-    @GetMapping("/{sort}")
-    public ResponseEntity<List<ProductoResponse>> getProductos(@PathVariable("sort") Integer sort){
+    @GetMapping("/ordenados")
+    public ResponseEntity<List<ProductoResponse>> getProductosOrdenados(){
         return ResponseEntity.ok(productoService.getProductosOrderByPrecio());
     }
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Object> getProductoById(@PathVariable("id")@Valid @NonNull Long id){
         try {
             return ResponseEntity.ok(productoService.getProductoById(id));
