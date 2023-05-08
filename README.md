@@ -57,9 +57,9 @@ Ejemplo:
 
 ### GET (listado de entidades ordenadas por precio)
 
-	http://localhost:8080/productos/{sort}
+	http://localhost:8080/productos/ordenados
   
   Ejemplo:
 
-    http://localhost:8080/productos/1
+    http://localhost:8080/productos/ordenados
 ---------------------------
