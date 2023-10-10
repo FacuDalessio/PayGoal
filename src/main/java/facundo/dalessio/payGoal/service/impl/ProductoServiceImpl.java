@@ -27,10 +27,7 @@ public class ProductoServiceImpl implements ProductoService {
     @Transactional
     @Override
     public ProductoResponse save(ProductoRequest request) {
-        ProductoEntity entity = productoMapper.requestToEntity(request);
-        productoRepository.save(entity);
-        ProductoResponse response = productoMapper.entityToResponse(entity);
-        return response;
+
     }
 
     @Transactional
